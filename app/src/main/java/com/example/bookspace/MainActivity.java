@@ -58,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                     binding.topBar.getPaddingRight(),
                     binding.topBar.getPaddingBottom()
             );
-            binding.bottomNav.setPadding(0, 0, 0, insets.bottom);
+            binding.bottomNavContainer.setPadding(
+                    binding.bottomNavContainer.getPaddingLeft(),
+                    binding.bottomNavContainer.getPaddingTop(),
+                    binding.bottomNavContainer.getPaddingRight(),
+                    insets.bottom + 24
+            );
             return WindowInsetsCompat.CONSUMED;
         });
 
@@ -67,9 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Setup chip click behavior
         setupChips();
-
-        // Set Home as default selected
-        binding.bottomNav.setSelectedItemId(R.id.nav_home);
+        
+        // Let basic custom Bottom Nav selection stay as defined in XML initially
     }
 
     /**

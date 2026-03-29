@@ -27,10 +27,10 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <!-- App Logo Icon -->
-        <com.google.android.material.imageview.ShapeableImageView
+        <ImageView
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@android:drawable/ic_menu_agenda"
+            android:src="@drawable/ic_menu_book"
             app:tint="@color/teal_600"
             android:contentDescription="@string/app_name" />
 
@@ -52,8 +52,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"
-            android:src="@android:drawable/ic_popup_reminder"
-            app:tint="@color/on_surface_variant"
+            android:src="@drawable/ic_notifications"
+            app:tint="#476868"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/cd_notification" />
 
@@ -618,20 +618,134 @@
     </androidx.core.widget.NestedScrollView>
 
     <!-- ═══════════════════════════════════════════════════════════════
-         BOTTOM NAVIGATION BAR — Glassmorphic with rounded top
+         BOTTOM NAVIGATION BAR — Custom Layout to match exact mockup
          ═══════════════════════════════════════════════════════════════ -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
+    <LinearLayout
+        android:id="@+id/bottomNavContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:background="@drawable/bottom_nav_bg"
         android:elevation="16dp"
-        app:itemIconTint="@color/bottom_nav_color"
-        app:itemTextColor="@color/bottom_nav_color"
-        app:labelVisibilityMode="labeled"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- HOME -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/nav_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bottom_nav_active_bg"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:id="@+id/icon_home"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_home_filled"
+                    app:tint="@color/teal_600" />
+
+                <TextView
+                    android:id="@+id/text_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/nav_home"
+                    android:textColor="@color/teal_600"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- LIBRARY -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/nav_library"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@null"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:id="@+id/icon_library"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_library_books"
+                    app:tint="#939a9a" />
+
+                <TextView
+                    android:id="@+id/text_library"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/nav_library"
+                    android:textColor="#939a9a"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- READER -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/nav_reader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@null"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:id="@+id/icon_reader"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_auto_stories"
+                    app:tint="#939a9a" />
+
+                <TextView
+                    android:id="@+id/text_reader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/nav_reader"
+                    android:textColor="#939a9a"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
